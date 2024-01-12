@@ -21,7 +21,7 @@ export default function Home() {
 
   return (
     <>
-      <main className="flex flex-col items-center justify-center h-[90vh] p-4 bg-gray-100">
+      <main className="flex flex-col items-center justify-center h-[90vh] p-4 bg-gray-200">
         <div className="w-full max-w-md mx-auto flex items-center justify-center flex-col">
           <h1 className="text-center tracking-tight font-semibold mb-4 text-xl text-slate-600">Make your own</h1>
           <Image
@@ -90,10 +90,17 @@ export default function Home() {
           }
         `}</style>
       </main>
-      <footer className=" bg-gray-100 mx-auto h-[10vh] flex items-center justify-center">
+      <footer className=" bg-gray-200 mx-auto h-[10vh] flex items-center justify-center">
         <div className="mx-auto w-full flex items-center justify-center">
           <p className="text-sm text-gray-500 sm:text-center dark:text-gray-400 tracking-tight font-semibold">
-            Made with ❤️‎ ‎‎ by T31K
+            Made with ❤️‎ ‎‎ by
+            <a
+              href="https://github.com/T31k"
+              target="_blank"
+              className="ml-1 underline text-blue-600"
+            >
+              T31K
+            </a>
           </p>
         </div>
       </footer>
