@@ -1,10 +1,10 @@
 'use client';
 import Image from 'next/image';
 import { useState } from 'react';
-import html2canvas from 'html2canvas';
 import { useDropzone } from 'react-dropzone';
-import { Button } from '@/components/ui/button';
 import { ArrowBigDownDash } from 'lucide-react';
+import { useToImage } from '@hcorta/react-to-image';
+import { Button } from '@/components/ui/button';
 
 export default function Home() {
   const [droppedImage, setDroppedImage] = useState(null);
@@ -16,55 +16,34 @@ export default function Home() {
     }
   };
 
-  const takeScreenshot = async () => {
-    try {
-      const canvas = await html2canvas(document.body);
-      const base64image = canvas.toDataURL('image/png');
-      const link = document.createElement('a');
-      link.href = base64image;
-      link.download = 'screenshot.png';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } catch (error) {
-      console.error('Error taking screenshot:', error);
-    }
-  };
-
+  const { ref, isLoading, getPng } = useToImage({ width: 520, height: 520 });
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop, accept: 'image/*' });
 
   return (
-    <main className="py-24 flex flex-col items-center justify-between h-[90vh] ">
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="jumbo absolute -inset-[10px] opacity-50"></div>
-      </div>
-      <div>
-        <h1 className="text-center tracking-tight mb-3">Make your own</h1>
+    <main className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
+      <div className="w-full max-w-md mx-auto flex items-center justify-center flex-col">
+        <h1 className="text-center tracking-tight mb-4">Make your own</h1>
         <Image
           src="/logo.png"
-          width={300}
+          width={200}
           height={500}
           alt="Picture of the author"
         />
       </div>
-      <div className="relative">
+      <div
+        className="relative mt-5"
+        ref={ref}
+      >
         <Image
           src="/rabbit.png"
           width={500}
           height={500}
           alt="Picture of the author"
         />
-        <div className="flex justify-center mt-5">
-          <Button
-            variant="outline"
-            onClick={takeScreenshot}
-          >
-            Download
-          </Button>
-        </div>
         <div
           {...getRootProps()}
-          className="bg-black h-[458px] w-[347px] left-[15px] absolute top-[16px] rounded-[30px] flex items-center justify-center overflow-hidden"
+          className="bg-black h-[461px] w-[347px] left-[15px] absolute top-[15px] rounded-[30px] flex items-center justify-center overflow-hidden"
+          style={{ transform: 'scale(var(--scale-factor, 1))', transformOrigin: 'top left' }}
         >
           <input {...getInputProps()} />
           {droppedImage ? (
@@ -93,7 +72,22 @@ export default function Home() {
           )}
         </div>
       </div>
-      <div className="h-[50px]"></div>
+      <Button
+        onClick={getPng}
+        className="mt-4"
+      >
+        Download SVG
+      </Button>
+      <style
+        jsx
+        global
+      >{`
+        @media (max-width: 768px) {
+          :root {
+            --scale-factor: 0.7; // Adjust this value to scale the black box on smaller screens
+          }
+        }
+      `}</style>
     </main>
   );
 }

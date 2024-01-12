@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@hcorta/react-to-image':
+    specifier: ^1.0.0
+    version: 1.0.0(html-to-image@1.11.11)(react@18.2.0)
   '@radix-ui/react-alert-dialog':
     specifier: ^1.0.5
     version: 1.0.5(react-dom@18.2.0)(react@18.2.0)
@@ -172,6 +175,17 @@ packages:
 
   /@floating-ui/utils@0.2.1:
     resolution: {integrity: sha512-9TANp6GPoMtYzQdt54kfAyMmz1+osLlXdg2ENroU7zzrtflTLrrC/lgrIfaSe+Wu0b89GKccT7vxXA0MoAIO+Q==}
+    dev: false
+
+  /@hcorta/react-to-image@1.0.0(html-to-image@1.11.11)(react@18.2.0):
+    resolution: {integrity: sha512-Flp/zLXMTZWmjRwVGLeTtI0c7a6AwzWFysnILFPro0maTW+DIurue2FhmdcZW2dMmpOYay/u5IQHCpVEPkmTjA==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      html-to-image: ^1.9.0
+      react: '>=15.0.0'
+    dependencies:
+      html-to-image: 1.11.11
+      react: 18.2.0
     dev: false
 
   /@humanwhocodes/config-array@0.11.13:
@@ -2282,6 +2296,10 @@ packages:
     engines: {node: '>= 0.4'}
     dependencies:
       function-bind: 1.1.2
+
+  /html-to-image@1.11.11:
+    resolution: {integrity: sha512-9gux8QhvjRO/erSnDPv28noDZcPZmYE7e1vFsBLKLlRlKDSqNJYebj6Qz1TGd5lsRV+X+xYyjCKjuZdABinWjA==}
+    dev: false
 
   /html2canvas@1.4.1:
     resolution: {integrity: sha512-fPU6BHNpsyIhr8yyMpTLLxAbkaK8ArIBcmZIRiBLiDhjeqvXolaEmDGmELFuX9I4xDcaKKcJl+TKZLqruBbmWA==}
