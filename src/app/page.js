@@ -77,7 +77,7 @@ export default function Home() {
           onClick={getPng}
           className="mt-4"
         >
-          Download SVG
+          Download Image
         </Button>
         <style
           jsx
