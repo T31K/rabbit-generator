@@ -21,9 +21,9 @@ export default function Home() {
 
   return (
     <>
-      <main className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
+      <main className="flex flex-col items-center justify-center h-[90vh] p-4 bg-gray-100">
         <div className="w-full max-w-md mx-auto flex items-center justify-center flex-col">
-          <h1 className="text-center tracking-tight mb-4">Make your own</h1>
+          <h1 className="text-center tracking-tight font-semibold mb-4">Make your own</h1>
           <Image
             src="/logo.png"
             width={200}
