@@ -21,7 +21,7 @@ export default function Home() {
 
   return (
     <>
-      <main className="flex flex-col items-center justify-center h-[90vh] p-4 bg-gray-200">
+      <main className="flex flex-col items-center justify-center  p-4 bg-gray-200">
         <div className="w-full max-w-md mx-auto flex items-center justify-center flex-col">
           <h1 className="text-center tracking-tight font-semibold mb-4 text-xl text-slate-600">Make your own</h1>
           <Image
